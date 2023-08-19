@@ -4,6 +4,8 @@ import PlaceCard from "../Components/PlaceCard";
 import Hotel from "../Components/Hotels";
 import Details from "../Components/Details";
 import Home from "../Components/Home";
+import About from "../Components/About";
+import NavAbout from "../Components/NavAbout";
 
 
 const AllRoutes = () => {
@@ -14,6 +16,7 @@ const AllRoutes = () => {
         <Route exact path='/holidays' element={<PlaceCard/>} />
         <Route exact path='/hotels' element={<Hotel/>} />
         <Route path='/hotels/:id' element={<Details/>} />
+        <Route path='/about' element={<NavAbout/>} />
         
         
       </Routes>

@@ -40,7 +40,7 @@ const Navbar = () => {
             <a href='/holidays'>Holidays</a>
           </li>
           <li>
-            <a href='#contact'>Contact Us</a>
+            <a href='about'>About Us</a>
           </li>
         </ul>
         <div className='burger' onClick={hamburger}>
