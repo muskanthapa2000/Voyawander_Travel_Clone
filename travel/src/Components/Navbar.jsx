@@ -25,19 +25,19 @@ const Navbar = () => {
         <Heading id='logo'>Voyawander</Heading>
         <ul className={visible}>
           <li>
-            <a href='#home'> Home</a>
+            <a href='/'>Home</a>
           </li>
-          <li>
+          {/* <li>
             <a href='#about'>About Us</a>
-          </li>
+          </li> */}
           <li>
-            <a href='#hotels'>Hotels</a>
+            <a href='/hotels'>Hotels</a>
           </li>
           <li>
             <a href='#flights'>Flights</a>
           </li>
           <li>
-            <a href='#holidays'>Holidays</a>
+            <a href='/holidays'>Holidays</a>
           </li>
           <li>
             <a href='#contact'>Contact Us</a>

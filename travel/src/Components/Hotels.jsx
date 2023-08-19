@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 import { Link as Rlink } from "react-router-dom";
+import Navbar from "./Navbar";
 // import useNavigate from 'react-router-dom'
 
 
@@ -105,6 +106,7 @@ const Hotel = () => {
 
   return (
     <>
+    <Navbar/> 
       <Box mt={[-20, -20, -40]}>
         <Box bgColor={"#29335c"} h={[120, 120, 160]}></Box>
         <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={10} p={[3, 5]} bg={"#cceaf7"}>
