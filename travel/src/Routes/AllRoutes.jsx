@@ -8,11 +8,12 @@ import About from "../Components/About";
 import NavAbout from "../Components/NavAbout";
 
 
+
 const AllRoutes = () => {
     return (
 
         <Routes>
-            <Route path='/' element={<Home/>} />
+        <Route path='/' element={<Home/>} />
         <Route exact path='/holidays' element={<PlaceCard/>} />
         <Route exact path='/hotels' element={<Hotel/>} />
         <Route path='/hotels/:id' element={<Details/>} />
