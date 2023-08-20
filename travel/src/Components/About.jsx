@@ -5,6 +5,9 @@ import { GiCommercialAirplane } from "react-icons/gi";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { CiPercent } from "react-icons/ci";
 
+
+
+
 const About = () => {
   return (
     <div id='about'>
