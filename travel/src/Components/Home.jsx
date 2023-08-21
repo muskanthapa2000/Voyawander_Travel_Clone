@@ -13,7 +13,7 @@ import Holidays from "./Holidays";
 
 const Home = () => {
   return (
-    <div id='home'>
+    <div id='home' style ={{display : "grid" , padding : "20px"}}>
       <div className='resp'>
         <div id='imgSection'>
           <div class='box1'>
@@ -43,9 +43,9 @@ const Home = () => {
           <Button id='btn'>Learn More</Button>
         </div>
       </div>
-      {/* <About/>
-      <HomeHotels/> */}
-      {/* <Flights/> */}
+      <About/>
+      <HomeHotels/>
+      <Flights/>
       <Holidays/>
     </div>
 
