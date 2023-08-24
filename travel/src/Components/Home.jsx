@@ -10,6 +10,8 @@ import HomeHotels from "./HomeHotels";
 import Flights from "./Flights";
 import Holidays from "./Holidays";
 
+
+
 const Home = () => {
   return (
     <div id='home' style ={{display : "grid" , padding : "20px"}}>
