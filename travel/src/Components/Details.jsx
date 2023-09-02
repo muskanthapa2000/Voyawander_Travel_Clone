@@ -322,7 +322,7 @@ function Details() {
 
         <Box textAlign="right" marginBottom={5}>
 
-       <Rlink to={`/payment/${id}`}> <button className="button">
+       <Rlink to={`/payment`}> <button className="button">
       Book Now
     </button></Rlink> 
 </Box>

@@ -6,6 +6,7 @@ import Details from "../Components/Details";
 import Home from "../Components/Home";
 import About from "../Components/About";
 import NavAbout from "../Components/NavAbout";
+import PaymentPage from "../Components/payment";
 
 const AllRoutes = () => {
     return (
@@ -16,6 +17,7 @@ const AllRoutes = () => {
         <Route exact path='/hotels' element={<Hotel/>} />
         <Route path='/hotels/:id' element={<Details/>} />
         <Route path='/about' element={<NavAbout/>} />
+        <Route path='/payment' element={<PaymentPage/>} />
 
         
         

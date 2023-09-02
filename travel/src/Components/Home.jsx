@@ -1,5 +1,4 @@
 import React from "react";
-// import "../Styles/Home.modulo.css";
 import "../Styles/Home.modulo.css"
 import { Button, Heading } from "@chakra-ui/react";
 import { GiCommercialAirplane } from "react-icons/gi";

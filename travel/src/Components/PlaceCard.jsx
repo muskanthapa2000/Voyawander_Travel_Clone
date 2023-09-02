@@ -203,9 +203,9 @@ const PlaceCard = () => {
         mb={6}
         color="black"
       >
-        <Text as={"span"} color={"black"}>
+        {/* <Text as={"span"} color={"black"}>
           Search your Destination
-        </Text>
+        </Text> */}
       </Heading>
       
       <Flex justifyContent="center" >
