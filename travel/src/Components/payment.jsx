@@ -12,8 +12,11 @@ import {
   Divider,
   HStack,
   VStack,
-  // ... other Chakra UI imports
+  Center 
 } from '@chakra-ui/react';
+import { useToast } from '@chakra-ui/react'
+import Footer from './Footer';
+import { useNavigate } from 'react-router-dom';
 
 // PaymentSummary component (you can define this component separately)
 const PaymentSummary = ({
@@ -49,18 +52,24 @@ const PaymentPage = () => {
   const [expirationDate, setExpirationDate] = useState('');
   const [cvv, setCvv] = useState('');
   const [isSummaryVisible, setIsSummaryVisible] = useState(false);
+  const toast = useToast()
+  const navigate = useNavigate()
 
-  const handlePayment = async () => {
-    // Handle payment logic here (mocked for this example)
-
-    // Show the payment summary
-    setIsSummaryVisible(true);
-  };
-
+const handlePaymentDone =()=>{
+  toast({
+    title: 'Payment done',
+    description: 'Thanks for booking',
+    status: 'success',
+    duration: 9000,
+    isClosable: true,
+  });
+  navigate("/")
+}
   return (
-    <Box width="400px" ml={200} >
-      <Card variant="unstyled" p="4" bg="inherit">
-        <Heading as="h1" size="xl" mb={4}>
+    <Box >
+      <Center>
+      <Card variant="unstyled"  bg="inherit"  mt={20} mb={20}>
+        <Heading as="h1" size="xl" >
           Payment Information
         </Heading>
         <form>
@@ -72,6 +81,7 @@ const PaymentPage = () => {
                 placeholder="Enter your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required = {true}
               />
             </FormControl>
             <FormControl>
@@ -122,41 +132,25 @@ const PaymentPage = () => {
                 />
               </FormControl>
             </HStack>
-            <Button
+            <Button 
               type="button"
               variant="solid"
               colorScheme="orange"
               _hover={{
                 backgroundColor: 'orange.600',
               }}
-              onClick={handlePayment}
+              onClick={handlePaymentDone }
             >
               Book Now
             </Button>
           </Stack>
         </form>
       </Card>
+      </Center>
+     
 
-      {/* Payment Summary */}
-      {isSummaryVisible && (
-        <Box
-          p="4"
-          mt="4"
-          bg="inherit"
-          border="1px solid #E2E8F0"
-          borderRadius="md"
-        >
-          <PaymentSummary
-            roomCount={1}
-            totalPrice={1500}
-            taxRate={0.18}
-            taxAmount={270}
-            totalAmount={1770}
-            payableAmount={1770}
-            dayCount={3}
-          />
-        </Box>
-      )}
+     <Footer/>
+   
     </Box>
   );
 };

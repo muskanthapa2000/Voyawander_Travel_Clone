@@ -18,6 +18,7 @@ import {
 import { StarIcon } from "@chakra-ui/icons";
 import { Link as Rlink } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 // import useNavigate from 'react-router-dom'
 
 
@@ -106,12 +107,12 @@ const Hotel = () => {
 
   return (
     <>
-    <Navbar/> 
+    {/* <Navbar/>  */}
       <Box >
-        <Box bgColor={"#29335c"} h={[120, 120, 160]}></Box>
+        {/* <Box  h={[120, 120, 160]}></Box> */}
         <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']} gap={10} p={[3, 5]} bg={"#cceaf7"}>
           {hotels.map((hotel) => (
-            <Card maxW='md' key={hotel.id} p={2} bg={"white"}>
+            <Card maxW='md' key={hotel.id} p={2} bg={"white"} mt={20}>
               <Image
                 src={hotel.image}
                 alt={hotel.name}
@@ -180,6 +181,7 @@ const Hotel = () => {
             </Card>
           ))}
         </Grid>
+        <Footer/>
       </Box>
     </>
   );

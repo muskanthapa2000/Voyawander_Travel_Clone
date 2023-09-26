@@ -7,6 +7,7 @@ import { BiLockAlt, BiWifi, BiWind, BiCoffee, BiDollarCircle, BiBed, BiCar, BiDr
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import { Link as Rlink} from 'react-router-dom';
+import Footer from './Footer';
 // import PreLoader from "../MainComp/Loader";
 
 const style = {
@@ -45,45 +46,20 @@ function Details() {
     // return  <PreLoader/>
   }
   return (
-   <Box marginBottom={['15px', '30px']} bgColor="#cceaf7">
+   <Box >
      
-      {/* <div style={{ position: 'relative' }}>
-        <Image
-          src={data.url}
-          alt="N"
-          style={{ width: '100%', height: "500px"}}
-        />
-        <Box
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate(-50%, -50%)"
-          textAlign="center"
-          bg="rgba(0, 0, 0, 0.6)"
-          p="4"
-          borderRadius="md"
-        >
-          <Heading as="h1" size="xl" color="white" fontWeight="bold">
-           {data.name}
-          </Heading>
-        </Box>
-      </div> */}
+    
 
 
       <div style={{ width: '80%', margin: '0 auto' , color:'blue.600', fontWeight:'700' }}>
-        <div marginTop="30px">
+        <div>
 
-        {/* <Text fontSize="40" textAlign="center" mb="4" width="70%" margin="auto" mt={10}   >
-         {data.name}  <span style={{color:'blue.600'}} ></span>
-        </Text> */}
+       
 
         <Text fontSize="40" textAlign="center" mb="4" width="70%" margin="auto" mt={10} color="blue.600"   >
          Welcome To  <span color="blue.600" > {data.name} </span>
         </Text>
-{/* 
-          <Text fontSize="40" textAlign="center" mb="4" width="70%" margin="auto" mt={10} color="blue.600">
-            Welcome To {data.name}
-          </Text> */}
+
 
         <Text fontSize="l" textAlign="center" mb={10} width="70%" margin="auto"  style={{color:"black"}}  >
          {data.description}
@@ -321,6 +297,7 @@ function Details() {
 </Box>
 
       </div>
+      <Footer/>
             
       </Box>
   );

@@ -8,13 +8,14 @@ import About from "./About";
 import HomeHotels from "./HomeHotels";
 import Flights from "./Flights";
 import Holidays from "./Holidays";
+import Footer from "./Footer";
 
 
 
 const Home = () => {
   return (
     <div id='home' style ={{display : "grid" , padding : "20px"}}>
-      <div className='resp'>
+      <div className='resp' >
         <div id='imgSection'>
           <div class='box1'>
             <img
@@ -47,6 +48,7 @@ const Home = () => {
       <HomeHotels/>
       <Flights/>
       <Holidays/>
+      <Footer/>
     </div>
 
     

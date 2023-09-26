@@ -29,6 +29,7 @@ import {
 } from "@chakra-ui/react";
 import { debounce } from "lodash";
 import { FaSearch } from "react-icons/fa";
+import Footer from "./Footer";
 
 const ModalWithSpinner = ({ isOpen, onClose }) => {
   const [showSpinner, setShowSpinner] = useState(true);
@@ -147,7 +148,7 @@ const PlaceCard = () => {
 
 
     
-    <Box bgColor={"#cceaf7"} marginTop={8}>
+    <Box bgColor={"#cceaf7"} >
   
       <Heading
         pt={100}
@@ -228,6 +229,7 @@ const PlaceCard = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+      <Footer/>
     </Box>
   );
 };

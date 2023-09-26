@@ -4,6 +4,8 @@ import "../Styles/About.modulo.css";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { CiPercent } from "react-icons/ci";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 
 
@@ -11,6 +13,7 @@ import { CiPercent } from "react-icons/ci";
 const About = () => {
   return (
     <div id='about'>
+
       <div id='text'>
         <Heading>We offer the Best</Heading>
         <text>
@@ -25,7 +28,10 @@ const About = () => {
             <GiCommercialAirplane />
           </div>
           <Heading id='cardHeading'>International Tours</Heading>
-          Explore the world like never before with out International tours.
+          Exp
+          
+          
+           the world like never before with out International tours.
           Discover new cultures meet new people and create memories that will
           last a lifetime.
         </div>
@@ -47,6 +53,7 @@ const About = () => {
           vacation packages. Save big and travel more with our special offers.
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
