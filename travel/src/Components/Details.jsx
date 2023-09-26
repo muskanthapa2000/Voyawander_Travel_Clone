@@ -38,13 +38,11 @@ function Details() {
       });
 
     console.log(id);
-  }, [id]);
+  }, []);
   console.log("Data:", data);
 
   if(loading){
     // return  <PreLoader/>
-
-   
   }
   return (
    <Box marginBottom={['15px', '30px']} bgColor="#cceaf7">
@@ -303,15 +301,10 @@ function Details() {
               border: "0  px",
               loading: "lazy",
               left: "0px",
-              //   position:"absolute",
               top: "0px",
               width: "100%",
             }}
             id="iframe"
-            //   width="600"
-            //   height="450"
-            //   style="border: 0"
-            //   loading="lazy"
             allowfullscreen
             referrerpolicy="no-referrer-when-downgrade"
             src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCJ50P3i-sk5hbxpI4mwppCAkio4ATadi0
@@ -322,7 +315,7 @@ function Details() {
 
         <Box textAlign="right" marginBottom={5}>
 
-       <Rlink to={`/payment`}> <button className="button">
+       <Rlink to={`/payment/${id}`}> <button className="button">
       Book Now
     </button></Rlink> 
 </Box>

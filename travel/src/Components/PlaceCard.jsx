@@ -148,52 +148,6 @@ const PlaceCard = () => {
 
     
     <Box bgColor={"#cceaf7"} marginTop={8}>
-
-{/* 
-
-<Box position="relative" maxWidth="1000px"  margin="0 auto">
-      <Image
-        src="https://as2.ftcdn.net/v2/jpg/01/74/67/91/1000_F_174679133_JSQwNCDHSTdwo1geidRrSRNorwU4TICc.jpg"
-        alt="Your Image"
-        width="500%" 
-        height="30%" 
-      />
-
-      <Box
-        position="absolute"
-        bottom="0"
-        left="0"
-        right="0"
-        backgroundColor="white"
-        padding="10px"
-        boxShadow="0px -2px 5px rgba(0, 0, 0, 0.1)"
-      >
-        <form>
-          <Input
-            type="text"
-            placeholder="Search..."
-            width="70%"
-            padding="5px"
-            border="1px solid #ccc"
-            borderRadius="5px"
-          />
-          <Button
-            type="submit"
-            backgroundColor="#007bff"
-            color="white"
-            border="none"
-            padding="5px 10px"
-            borderRadius="5px"
-            cursor="pointer"
-          >
-            Search
-          </Button>
-        </form>
-      </Box>
-    </Box> */}
-
-
-
   
       <Heading
         pt={100}

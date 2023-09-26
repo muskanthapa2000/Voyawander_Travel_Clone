@@ -21,7 +21,7 @@ const Navbar = () => {
   };
   return (
     <Box>
-      <nav className={height}>
+      <nav className={height} style={{backgroundColor: "#00adfd"}}>
         <Heading id='logo'>Voyawander</Heading>
         <ul className={visible}>
           <li>
@@ -34,13 +34,16 @@ const Navbar = () => {
             <a href='/hotels'>Hotels</a>
           </li>
           <li>
-            <a href='#flights'>Flights</a>
-          </li>
-          <li>
             <a href='/holidays'>Holidays</a>
           </li>
           <li>
-            <a href='about'>About Us</a>
+            <a href='/about'>About Us</a>
+          </li>
+          <li>
+            <a href='/login'>Login</a>
+          </li>
+          <li>
+            <a href='/register'>Register</a>
           </li>
         </ul>
         <div className='burger' onClick={hamburger}>

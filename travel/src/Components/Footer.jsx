@@ -8,7 +8,7 @@ import "../Styles/Footer.modulo.css";
 const Footer = () => {
   return (
     <div id='footer'>
-      <div className='footerContainer'>
+      <div className='footerContainer' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} >
         <div className='textPart'>
           <Heading>Voyagers</Heading>
           <span>
@@ -16,6 +16,12 @@ const Footer = () => {
             Consectetur aut assumenda obcaecati alias, natus quae cum possimus
           </span>
         </div>
+        <div>
+          <span>
+            
+          </span>
+          </div>
+       
         <div className='socialMedia'>
           <BsInstagram />
           <BiLogoLinkedin />
