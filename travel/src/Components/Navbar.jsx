@@ -8,7 +8,7 @@ import { AuthContent } from "./ContextApi";
 import {Link} from 'react-router-dom'
 
 const Navbar = () => {
-  const [close, setClose] = useState(true);
+  const [close, setClose] = useState(false);
   const [visible, setVisible] = useState("");
   const [height, setHight] = useState("");
   const {namelogin} = useContext(AuthContent);
@@ -58,9 +58,9 @@ const Navbar = () => {
           <Link to = "/register">Register</Link>
           </li>
         </ul>
-        <div className='burger' onClick={hamburger}>
+        {/* <div className='burger' onClick={hamburger}>
           {close ? <GiHamburgerMenu /> : <RxCross2 />}
-        </div>
+        </div> */}
       </nav>
     </Box>
   );

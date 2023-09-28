@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import { Link as Rlink} from 'react-router-dom';
 import Footer from './Footer';
-import Navbar from './Navbar';
 // import PreLoader from "../MainComp/Loader";
 
 // const style = {
@@ -47,15 +46,16 @@ function Details() {
   return (
    <Box >
 
-      <div style={{ width: '80%', margin: '0 auto' , color:'blue.600', fontWeight:'700' }} >
-        {/* <Navbar/> */}
+      <div >
+      
         <div>
 
        
 
-        <Text fontSize="40" textAlign="center" mb="4" width="70%" margin="auto" mt={10} color="blue.600"   >
-         Welcome To  <span color="blue.600" > {data.name} </span>
-        </Text>
+<Text fontSize="40" textAlign="center" mb="4" color="blue.600" paddingTop="100px"  fontWeight="bold">
+         Welcome To {data.name} </Text>
+
+        
 
 
         <Text fontSize="l" textAlign="center" mb={10} width="70%" margin="auto"  style={{color:"black"}}  >
