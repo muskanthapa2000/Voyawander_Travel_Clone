@@ -8,17 +8,16 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import { Link as Rlink} from 'react-router-dom';
 import Footer from './Footer';
+import Navbar from './Navbar';
 // import PreLoader from "../MainComp/Loader";
 
-const style = {
-  marginTop:"35px",
-  overflow: "hidden",
-  width: "100%",
-  paddingBottom: "46%",
-  //    border:"2px solid red",
-  position: "relative",
-  height:"0px",
-};
+// const style = {
+
+//   overflow: "hidden",
+//   width: "100%",
+//   paddingBottom: "46%",
+//   height:"0px",
+// };
 
 function Details() {
   const [data, setData] = useState([]);
@@ -47,11 +46,9 @@ function Details() {
   }
   return (
    <Box >
-     
-    
 
-
-      <div style={{ width: '80%', margin: '0 auto' , color:'blue.600', fontWeight:'700' }}>
+      <div style={{ width: '80%', margin: '0 auto' , color:'blue.600', fontWeight:'700' }} >
+        {/* <Navbar/> */}
         <div>
 
        
@@ -269,7 +266,7 @@ function Details() {
 
         
  <Box marginTop={['20px', '40px']}>
- <div style={style}>
+ <div >
           <iframe
             className="iframe"
             style={{
@@ -289,12 +286,16 @@ function Details() {
  </Box>
  
 
-        <Box textAlign="right" marginBottom={5}>
+        {/* <Box textAlign="right" marginBottom={5}>
 
-       <Rlink to={`/payment/${id}`}> <button className="button">
+       <Rlink to={`/payment/${id}`}> <button className="button"  variant='solid'
+                  colorScheme='orange'
+                  _hover={{
+                    backgroundColor: "orange.600", // Change background color on hover
+                  }}>
       Book Now
     </button></Rlink> 
-</Box>
+</Box> */}
 
       </div>
       <Footer/>

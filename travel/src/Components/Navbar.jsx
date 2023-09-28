@@ -3,11 +3,16 @@ import "../Styles/Navbar.modulo.css";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
+import { useContext } from "react";
+import { AuthContent } from "./ContextApi";
+import {Link} from 'react-router-dom'
 
 const Navbar = () => {
   const [close, setClose] = useState(true);
   const [visible, setVisible] = useState("");
   const [height, setHight] = useState("");
+  const {namelogin} = useContext(AuthContent);
+
 
   const hamburger = () => {
     if (close) {
@@ -25,25 +30,32 @@ const Navbar = () => {
         <Heading id='logo'>Voyawander</Heading>
         <ul className={visible}>
           <li>
-            <a href='/'>Home</a>
+            <Link to = "/">Home</Link>
           </li>
           {/* <li>
             <a href='#about'>About Us</a>
           </li> */}
-          <li>
-            <a href='/hotels'>Hotels</a>
+              <li>
+                <Link to = "/holidays">Holidays</Link>
+            
           </li>
           <li>
-            <a href='/holidays'>Holidays</a>
+          <Link to = "/hotels">Hotels</Link>
           </li>
+      
           <li>
-            <a href='/about'>About Us</a>
+            <Link to = "/about">About Us</Link>
           </li>
+
+          
           <li>
-            <a href='/login'>Login</a>
-          </li>
+  <Link to="/login">
+    {namelogin === "" ? "Login" : namelogin}
+  </Link>
+</li>
+
           <li>
-            <a href='/register'>Register</a>
+          <Link to = "/register">Register</Link>
           </li>
         </ul>
         <div className='burger' onClick={hamburger}>

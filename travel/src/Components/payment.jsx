@@ -57,6 +57,7 @@ const PaymentPage = () => {
 
 const handlePaymentDone =()=>{
   toast({
+    position : "top" ,
     title: 'Payment done',
     description: 'Thanks for booking',
     status: 'success',
@@ -91,6 +92,7 @@ const handlePaymentDone =()=>{
                 placeholder="Enter contact number"
                 value={contactNumber}
                 onChange={(e) => setContactNumber(e.target.value)}
+                required={true}
               />
             </FormControl>
             <FormControl>
@@ -100,6 +102,7 @@ const handlePaymentDone =()=>{
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required={true}
               />
             </FormControl>
             <Divider />
@@ -110,6 +113,7 @@ const handlePaymentDone =()=>{
                 placeholder="Enter card number"
                 value={cardNumber}
                 onChange={(e) => setCardNumber(e.target.value)}
+                required={true}
               />
             </FormControl>
             <HStack spacing={4}>
@@ -120,6 +124,7 @@ const handlePaymentDone =()=>{
                   placeholder="MM/YY"
                   value={expirationDate}
                   onChange={(e) => setExpirationDate(e.target.value)}
+                  required={true}
                 />
               </FormControl>
               <FormControl>
@@ -129,6 +134,7 @@ const handlePaymentDone =()=>{
                   placeholder="CVV"
                   value={cvv}
                   onChange={(e) => setCvv(e.target.value)}
+                  required={true}
                 />
               </FormControl>
             </HStack>

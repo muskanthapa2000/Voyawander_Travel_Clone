@@ -1,16 +1,18 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const NavAbout = () => {
   return (
-    <Box mt={-40} minH='150vh'>
-      <Box bgColor={"#29335c"} h={160} mb={10}></Box>
+    <Box  style={{marginBottom:"30px" }}>
+
       <Box
         bgPosition='center'
         bgRepeat='no-repeat'
         bgSize='cover'
         py={20}
         bg={"#cceaf7"}
-        mt={-10}
+   
       >
         <Box maxW='800px' mx='auto' px={6} mt={-59}>
           <img
@@ -67,6 +69,7 @@ const NavAbout = () => {
           </Flex>
         </Box>
       </Box>
+      <Footer/>
     </Box>
   );
 };

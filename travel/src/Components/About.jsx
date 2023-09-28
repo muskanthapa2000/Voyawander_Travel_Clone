@@ -53,7 +53,7 @@ const About = () => {
           vacation packages. Save big and travel more with our special offers.
         </div>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };

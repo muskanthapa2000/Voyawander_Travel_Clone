@@ -8,7 +8,7 @@ import About from "../Components/About";
 import NavAbout from "../Components/NavAbout";
 import PaymentPage from "../Components/payment";
 import { Login } from "../Components/Login";
-import { Signup } from "../Components/Signup";
+import SignUp from "../Components/Signup"
 
 const AllRoutes = () => {
     return (
@@ -21,11 +21,8 @@ const AllRoutes = () => {
         <Route path='/about' element={<NavAbout/>} />
         <Route path='/payment' element={<PaymentPage/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/register' element={<Signup/>} />
+        <Route path='/register' element={<SignUp/>} />
 
-
-        
-        
         
       </Routes>
         );

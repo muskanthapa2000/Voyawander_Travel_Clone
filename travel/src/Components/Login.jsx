@@ -1,169 +1,88 @@
-import React, { useRef, useState } from "react"
-import {
-    FormLabel,
-    Input,
-    Heading,
-    Checkbox,
-    Button,
-    ButtonGroup,
-    InputGroup,
-    InputRightElement,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalCloseButton,
-    useDisclosure,
-    Box, Link, Text, FormControl, useToast
-}
-    from "@chakra-ui/react";
-import { Signup } from "./Signup";
-
-import { useNavigate } from "react-router-dom"
-
+import React, { useContext, useState } from 'react'
+// import './Style.css';
+import { AuthContent } from './ContextApi';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const Login = () => {
-    const [email, setemail] = useState("");
-    const [password, setpassword] = useState("")
 
-    
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    
-    // const AllUsers = useSelector((store) => store.accountReducer.AllUsers)
-    // const isLogin = useSelector((store) => store.accountReducer.isLogin)
-    
+    const navigate = useNavigate();
+  const{arr,namelogin,setNamelogin}=useContext(AuthContent);
+const[dt,setDt]=useState({
+  email:"",
+  password:"",
 
-   const toast = useToast()
-  const toastIdRef = useRef()
+})
+console.log(dt.email)
+console.log(arr)
 
-
-    const navigate = useNavigate()
-
-    const [show, setShow] = useState(false)
-    const handleClick = () => setShow(!show)
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const payload = {
-            email,
-            password,
-        }
-        
-        fetch("https://prussian-blue-harp-seal-coat.cyclic.cloud/login", {
-            method : "POST",
-            headers : {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify(payload)
-        })
-        .then((res) => res.json())
-        .then((res) => {
-            console.log(res.msg)
-            localStorage.setItem("token", res.token)
-        })
-        .catch((err) => console.log(err))
+const logindata=(e)=>{
+e.preventDefault();
+    let data1=arr.filter((el)=>{
+        console.log(el.email)
        
+      return el.email===dt.email&&el.password===dt.password;
+    
+    })
+    // console.log(el.email)
+    // console.log(dt.email)
+    console.log(data1);
+    if(data1.length>=1){
+      alert("login Successfully");
+      navigate("/")
+      let data2=arr.filter((el)=>{
+       if(el.email===dt.email&&el.password===dt.password){
+        return el.name;
+       }
+      })
+      setNamelogin(data2[0].name);
+    
+
     }
+    else{
+      alert("Please SignUp First or Fill correct Details");
+    }
+}
 
-    return (
-        <Box style={{marginBottom:"30px" }} >
-            <Box className="main_form_div"  w={{base:"90%",sm:"80%", md:'60%', lg:"40%"}} m='10px auto' p={{base:"25px"}}
-             bg={null} boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"}  >
-                <Heading fontWeight="600" fontSize="32px" >Sign in to your Account</Heading>
-                <br />
-                <form onSubmit={handleSubmit}
-                 >
-                <FormControl>
-                    <FormLabel mb={'5px'}> Email </FormLabel>
-                    <Input mb={'10px'} type="email" placeholder="Email" focusBorderColor='yellow.600'  required onChange={(e) => setemail(e.target.value)} />
-                    <br />
-
-                    <FormLabel mb={'5px'}> Password </FormLabel>
-                    <InputGroup size='md' >
-                        <Input
-                            type={show ? 'text' : 'password'}
-                            placeholder='Password'
-                            focusBorderColor='yellow.600'
-                            required
-                           
-                            onChange={(e) => setpassword(e.target.value)}
-                        />
-                        {/* <InputRightElement width='4.5rem' >
-                            <Button h='1.75rem' size='sm' backgroundColor="#e4640d" 
-                            color={'white'} onClick={handleClick} >
-                                {show ? 'Hide' : 'Show'}
-                            </Button>
-                        </InputRightElement> */}
-
-                        <InputRightElement width="4.5rem">
-                            <Button
-                            h="1.75rem"
-                            size="sm"
-                            onClick={handleClick}
-                            colorScheme="orange"
-                            >
-                            {show ? "Hide" : "Show"}
-                            </Button>
-                        </InputRightElement>
-                    </InputGroup>
-
-                    <br />
-                    <br />
-                    <Box className="item_display_corner" mb={'10px'} fontSize={{base:"sm", sm:'md'}}>
-                        <div>
-                            <Checkbox colorScheme='yellow'  fontSize={{base:"sm", sm:'md'}}>Remember Me</Checkbox>
-                        </div>
-                        <div><Link>Forgot your password?</Link> </div>
-                    </Box>
-
-
-                    <Box className="item_center" my={'10px'}>
-                        <Text className="small_font" color={'grey'}>
-                            I accept the Specialized <Link className="hover_text_color">Terms of Use</Link> and acknowledge Specialized will use my information in accordance with its <a href="https://www.specialized.com/sg/en/privacy-policy" className="hover_text_color">Privacy Policy.</a>
-                        </Text>
-                    </Box>
-                    <br />
-                    <Link to = "/">
-                    <ButtonGroup spacing='40'>
-                <Button
-                  variant='solid'
-                  colorScheme='orange'
-                  _hover={{
-                    backgroundColor: "orange.600", // Change background color on hover
-                  }}
-                  onClick={()=>{navigate("/")}}
-                >
-                Sign In
-                </Button>
-              </ButtonGroup>
-                    </Link>
-                    <br />
-                    <br />
-                <ButtonGroup spacing='40'>
-                    <Button
-                    variant='solid'
-                    colorScheme='orange'
-                    _hover={{
-                        backgroundColor: "orange.600", // Change background color on hover
-                    }}
-                    onClick={()=>{navigate("/register")}}
-                    >
-                    Create Account
-                    </Button>
-              </ButtonGroup>
-
-                    </FormControl>
-                </form>
-                <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false} size={{base:'xs', sm:'sm',md:'lg'}}>
-                    <ModalOverlay />
-                    <ModalContent bg='rgb(38,38,38)' borderRadius={'20px'}>
-                        <ModalCloseButton color={'white'} />
-                        <Signup onClose={onClose} />
-                    </ModalContent>
-                </Modal>
-
-            </Box>
-        </Box>
-    )
+console.log(namelogin)
+  
+  return (
+    <div className='body'>
+    <div class="main_div">
+    <div class="title">Login Form</div>
+    <div class="social_icons">
+      <a href="https://www.facebook.com/campaign/landing.php?campaign_id=14884913640&extra_1=s%7Cc%7C589460569900%7Cb%7Cface%20book%20log%20in%7C&placement=&creative=589460569900&keyword=face%20book%20log%20in&partner_id=googlesem&extra_2=campaignid%3D14884913640%26adgroupid%3D128696221912%26matchtype%3Db%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-6167883633%26loc_physical_ms%3D1007824%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gclid=CjwKCAjwqZSlBhBwEiwAfoZUIM-tJmhVIDXIb9pn7G27SABd70_ZXYVdLQPShV47NqCJMIn6wLldoBoCUjoQAvD_BwE"><i class="fab fa-facebook-f"></i> <span>Facebook</span></a>
+   
+      <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Flogin%3Flang%3Den"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+    </div>
+    <form onSubmit={logindata}>
+      <div class="input_box">
+        <input type="text" placeholder="Email or Phone" name="email" required id="login_email" value={dt.email} onChange={(e)=>setDt({...dt,[e.target.name]:e.target.value})}/>
+        <div class="icon"><i class="fas fa-user"></i></div>
+      </div>
+      <div class="input_box">
+        <input type="password" placeholder="Password" required id="password"value={dt.password} name="password" onChange={(e)=>setDt({...dt,[e.target.name]:e.target.value})}/>
+        <div class="icon"><i class="fas fa-lock"></i></div>
+      </div>
+      <div class="option_div">
+        <div class="check_box">
+          <input type="checkbox"/>
+          <span>Remember me</span>
+        </div>
+        <div class="forget_div">
+          
+        </div>
+      </div>
+      <div class="input_box button">
+        <input type="submit" value="Login"id="login"/>
+      </div>
+      <div class="sign_up">
+        Not a member? <Link style={{textDecoration:"none"}} to={"/sign_up"}>SignUp Now</Link>
+      </div>
+    </form>
+  </div>
+  </div>
+  )
 }

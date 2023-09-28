@@ -3,13 +3,11 @@
 nav {
   display: flex;
   justify-content: space-between;
-  background-color: transparent;
   color: Black;
   font-family: "Belanosima", sans-serif;
   position: fixed;
   width: 100%;
   padding: 10px 5% 0px 5%;
-  height: 72px;
 }
 #logo {
   font-family: "Mochiy Pop P One", sans-serif;
@@ -17,7 +15,10 @@ nav {
 
 ul {
   display: flex;
-  opacity: 0;
+
+}
+body {
+  margin: 0;
 }
 li {
   padding: 15px;

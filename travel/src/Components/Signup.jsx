@@ -1,190 +1,101 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Input,
-  Heading,
-  Checkbox,
-  Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
-  Link,
-  useToast,
-} from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from 'react'
+// import './Style1.css';
+import { AuthContent } from './ContextApi';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
+ const SignUp = () => {
 
-export const Signup = ({ onClose }) => {
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [contact, setContact] = useState("");
-  const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+    const{arr,setArr,setCheck}=useContext(AuthContent)
+    const[log,setLog]=useState({
+      name:"",
+      email:"",
+      phone:"",
+      password:"",
+    })
+    const navigate = useNavigate();
+    console.log(log)
 
-  const navigate = useNavigate();
-  const toast = useToast();
+    const saveData =(e)=>{
+        e.preventDefault()
+     let logData=arr.filter((el)=>{
+       return el.email===log.email||el.phone===log.phone
+     })
+     if(logData.length>=1){
+        alert("All ready register")
+     }else{
+        setArr([...arr,log])
 
-  const sendRegistrationRequest = async () => {
-    try {
-      const payload = {
-        email,
-        first_name: firstName,
-        second_name: lastName,
-        contact,
-        password,
-      };
-
-      const response = await fetch("https://prussian-blue-harp-seal-coat.cyclic.cloud/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        console.log("User registered successfully");
-        navigate("/login");
-        if (onClose) {
-          onClose();
-        }
-      } else {
-        console.error("User registration failed");
-        toast({
-          title: "Registration Error",
-          description: "User registration failed. Please try again.",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-      }
-    } catch (error) {
-      console.error("Error registering user:", error);
-      toast({
-        title: "Error",
-        description: "An error occurred while registering. Please try again later.",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
+        alert("Successfully")
+        setCheck(true);
+        navigate("/login")
+        
+     }
     }
-  };
+    console.log(arr)
 
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
 
   return (
-    <Box className="model_signup" maxW={"40%"} boxShadow={"rgba(0, 0, 0, 0.35) 0px 5px 15px"} ml= {500} style={{marginBottom:"30px" }}>
-      <Heading fontWeight="600" fontSize="32px">
-        Create an Account
-      </Heading>
-      <br />
-      <form onSubmit={sendRegistrationRequest}>
-        <Box mb={"10px"}>
-          <Input
-            type="email"
-            name="user_email"
-            placeholder="Email"
-            focusBorderColor="orange.600"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Box>
-
-        <Box mb={"10px"}>
-          <Input
-            type="text"
-            name="user_name"
-            placeholder="First Name"
-            focusBorderColor="orange.600"
-            required
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </Box>
-
-        <Box mb={"10px"}>
-          <Input
-            type="text"
-            placeholder="Last Name"
-            required
-            focusBorderColor="orange.600"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </Box>
-
-        <Box mb={"10px"}>
-          <Input
-            type="text"
-            placeholder="Contact Info"
-            required
-            focusBorderColor="orange.600"
-            value={contact}
-            onChange={(e) => setContact(e.target.value)}
-          />
-        </Box>
-
-        <InputGroup size="md">
-          <Input
-            type={showPassword ? "text" : "password"}
-            placeholder="Create Password"
-            required
-            name="user_password"
-            focusBorderColor="orange.600"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <InputRightElement width="4.5rem">
-            <Button
-              h="1.75rem"
-              size="sm"
-              onClick={togglePasswordVisibility}
-              colorScheme="orange"
-            >
-              {showPassword ? "Hide" : "Show"}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-
-        <Checkbox
-          colorScheme="orange"
-          required
-          fontSize={{ base: "xs", sm: "sm", sm: "sm" }}
-        >
-          I Accept The{" "}
-          <Link className="hover_text_color" fontSize={{ base: "xs", sm: "sm", md: "md" }}>
-            Specialized Terms & Conditions
-          </Link>{" "}
-        </Checkbox>
-
-        <Box style={{ textAlign: "center", color: "grey" }} py="10px">
-          <p>
-            I acknowledge Specialized will use my information in accordance
-            with its{" "}
-            <Link className="hover_text_color"> Privacy Policy.</Link>
-          </p>
-        </Box>
-
-        <Link to="/login">
-
-        <ButtonGroup spacing='40'>
-                <Button
-                  variant='solid'
-                  colorScheme='orange'
-                  _hover={{
-                    backgroundColor: "orange.600", // Change background color on hover
-                  }}
-                  onClick={()=>{navigate("/login")}}
-                >
-                 Sign In
-                </Button>
-              </ButtonGroup>
-        </Link>
+    <div className='body'>
+    <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form onSubmit={saveData}>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" id="name"name="name"value={log.name} required onChange={(e)=>setLog({...log, [e.target.name]:e.target.value})}/>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" required/>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" id="email" name="email"value={log.email} required onChange={(e)=>setLog({...log, [e.target.name]:e.target.value})}/>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" name="phone"value={log.phone} required onChange={(e)=>setLog({...log, [e.target.name]:e.target.value})}/>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password"id="password" name="password"value={log.password} required onChange={(e)=>setLog({...log, [e.target.name]:e.target.value})} />
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" required id="conform-password"/>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1"/>
+          <input type="radio" name="gender" id="dot-2"/>
+          <input type="radio" name="gender" id="dot-3"/>
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Trans-gender</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register"id="register"/>
+        </div>
       </form>
-    </Box>
-  );
-};
+      Already a member? <Link style={{textDecoration:"none"}} to={"/login"}>Login</Link>
+    </div>
+  </div>
+  </div>
+  )
+}
+
+export default SignUp;
